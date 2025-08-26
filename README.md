@@ -26,5 +26,6 @@ Deployed on **Render** 🚀 — [Live Demo](https://nodejsassignment-eadu.onrend
 ## 🛠️ Setup Instructions
 1. Clone this repo  
    ```bash
-   git clone https://github.com/your-username/school-finder.git
-   cd school-finder
+   git clone https://github.com/SatyaSai21/NodeJSAssignment.git
+   cd NodeJSAssignment
+
