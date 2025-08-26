@@ -1,19 +1,20 @@
 const { Sequelize } = require("sequelize");
 const config = require("../config/config");
 
-const sequelize = new Sequelize(
-  config.development.database,
-  config.development.username,
-  config.development.password,
-  {
-    host: config.development.host,
-    dialect: config.development.dialect,
-    logging: false,
-  }
-);
+// Railway provides DATABASE_URL in the environment
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: "mysql",
+  dialectOptions: {
+    ssl: {
+      require: true,
+    },
+  },
+  logging: false, // disable logs
+});
 
 sequelize.authenticate()
-  .then(() => console.log("Succesfully Connected To Database"))
-  .catch(err => console.error(" Error connecting DB:", err));
+  .then(() => console.log(" Successfully Connected To Database"))
+  .catch(err => console.error("Error connecting DB:", err));
 
 module.exports = sequelize;
+
